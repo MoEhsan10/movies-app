@@ -45,16 +45,16 @@ class _HomeState extends State<Home> {
         backgroundColor: ColorsManager.black,
         items: [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.homeIcon)),
+              icon: ImageIcon(AssetImage(AssetsManager.homeIcon),size: 20,),
               label: StringsManager.home),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.searchIcon)),
+              icon: ImageIcon(AssetImage(AssetsManager.searchIcon),size: 20),
               label: StringsManager.search),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.browseIcon)),
+              icon: ImageIcon(AssetImage(AssetsManager.browseIcon),size: 20),
               label: StringsManager.browse),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.watchListIcon)),
+              icon: ImageIcon(AssetImage(AssetsManager.watchListIcon),size: 20),
               label: StringsManager.watchList),
         ]),
   );
