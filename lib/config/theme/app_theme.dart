@@ -8,8 +8,8 @@ class AppTheme{
       backgroundColor: ColorsManager.black,
       unselectedItemColor: ColorsManager.unSelectedColor,
       selectedItemColor: ColorsManager.selectedColor,
+    ),
 
-    )
   );
 
 }

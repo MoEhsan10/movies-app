@@ -15,47 +15,62 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int currentIndex = 0;
 
-  int currentIndex=0;
-  List<Widget> tabs=[
-    HomeTab(),
-    Search(),
-    Browse(),
-    WatchList(),
+  List<Widget> tabs = [
+    const HomeTab(),
+    const Search(),
+    const Browse(),
+    const WatchList(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: buildBottomNavigationBar(),
       body: tabs[currentIndex],
-    );
-  }
 
-  buildBottomNavigationBar() =>BottomAppBar(
-    child: BottomNavigationBar(
-      currentIndex: currentIndex,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        // iconSize: 24, // Adjust icon size
+        // selectedFontSize: 12, // Font size for selected tab
+        // unselectedFontSize: 12, // Font size for unselected tabs
+        // backgroundColor: ColorsManager.black, // Bottom bar background
+        // selectedItemColor: ColorsManager.selectedColor, // Highlight color
+        // unselectedItemColor: ColorsManager.unSelectedColor, // Default tab color
+        currentIndex: currentIndex,
         onTap: (index) {
-        currentIndex=index;
           setState(() {
-
+            currentIndex = index;
           });
         },
-        backgroundColor: ColorsManager.black,
         items: [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.homeIcon),size: 20,),
-              label: StringsManager.home),
+            icon: ImageIcon(
+              AssetImage(AssetsManager.homeIcon),
+            ),
+            label: StringsManager.home,
+          ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.searchIcon),size: 20),
-              label: StringsManager.search),
+            icon: ImageIcon(
+              AssetImage(AssetsManager.searchIcon),
+            ),
+            label: StringsManager.search,
+          ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.browseIcon),size: 20),
-              label: StringsManager.browse),
+            icon: ImageIcon(
+              AssetImage(AssetsManager.browseIcon),
+            ),
+            label: StringsManager.browse,
+          ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(AssetsManager.watchListIcon),size: 20),
-              label: StringsManager.watchList),
-        ]),
-  );
+            icon: ImageIcon(
+              AssetImage(AssetsManager.watchListIcon),
+            ),
+            label: StringsManager.watchList,
+          ),
+        ],
+      ),
+    );
+  }
 }
