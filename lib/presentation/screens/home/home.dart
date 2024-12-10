@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/utils/assets_manager.dart';
 import 'package:movies/core/utils/colors_manager.dart';
+import 'package:movies/core/utils/strings_manager.dart';
 import 'package:movies/presentation/screens/home/tabs/browse/browse.dart';
 import 'package:movies/presentation/screens/home/tabs/home/home_tab.dart';
 import 'package:movies/presentation/screens/home/tabs/search/search.dart';
@@ -45,19 +46,16 @@ class _HomeState extends State<Home> {
         items: [
           BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(AssetsManager.homeIcon)),
-              label: ),
+              label: StringsManager.home),
           BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(AssetsManager.searchIcon)),
-              label: ),
+              label: StringsManager.search),
           BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(AssetsManager.browseIcon)),
-              label: ),
+              label: StringsManager.browse),
           BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(AssetsManager.watchListIcon)),
-              label: ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: ),
+              label: StringsManager.watchList),
         ]),
   );
 }

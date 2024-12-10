@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/core/utils/assets_manager.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -6,7 +8,11 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.brown,
+      child: Column(
+        children: [
+          Image.asset(AssetsManager.movie,width: 412.w,height: 217.h,),
+        ],
+      ),
     );
   }
 }
