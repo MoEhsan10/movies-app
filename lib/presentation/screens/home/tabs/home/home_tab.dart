@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/core/utils/assets_manager.dart';
 import 'package:movies/core/utils/colors_manager.dart';
 import 'package:movies/core/utils/routes_manager.dart';
+import 'package:movies/presentation/screens/home/tabs/home/widget/book_mark_widget.dart';
 import 'package:movies/presentation/screens/home/tabs/home/widget/list_view_widget.dart';
 
 class HomeTab extends StatelessWidget {
@@ -18,11 +19,11 @@ class HomeTab extends StatelessWidget {
             children: [
               // Background image
               InkWell(
-                onTap:() {
+                onTap: () {
                   Navigator.pushNamed(context, RoutesManager.homeDetails);
                 },
                 child: Image.asset(
-                  AssetsManager.movie,
+                  AssetsManager.dora,
                   width: double.infinity,
                   height: 220.h,
                   fit: BoxFit.cover,
@@ -30,7 +31,7 @@ class HomeTab extends StatelessWidget {
               ),
               // Play button in the center
               Positioned(
-                top: 100.h,
+                top: 90.h,
                 left: MediaQuery.of(context).size.width / 2 - 30.w,
                 child: const CircleAvatar(
                   radius: 30,
@@ -44,12 +45,16 @@ class HomeTab extends StatelessWidget {
               ),
               // Small movie image
               Positioned(
-                top: 30.h,
+                top: 120.h, // Adjusted to match the provided design
                 left: 16.w,
-                child: Image.asset(
-                  AssetsManager.smallMovie,
-                  width: 100.w,
-                  height: 150.h,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.r),
+                  child: Image.asset(
+                    AssetsManager.smallDora,
+                    width: 100.w, // Adjusted size
+                    height: 140.h, // Adjusted size
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
@@ -60,13 +65,13 @@ class HomeTab extends StatelessWidget {
             child: Align(
               alignment: AlignmentDirectional.topEnd,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   // Movie title
                   Text(
                     'Dora and the Lost City of Gold',
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -87,9 +92,8 @@ class HomeTab extends StatelessWidget {
           // "New Releases" Section
           Container(
             width: double.infinity,
-            height: 220.h,
             color: ColorsManager.darkGrey,
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -108,9 +112,14 @@ class HomeTab extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,
                     itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(right: 16.w),
-                      child: ListViewWidget(
-                        imagePath: AssetsManager.recomended,
+                      padding: EdgeInsets.only(right: 12.w),
+                      child: const Stack(
+                        children: [
+                          ListViewWidget(
+                            imagePath: AssetsManager.recomended,
+                          ),
+                          BookMarkWidget(),
+                        ],
                       ),
                     ),
                   ),
@@ -122,9 +131,8 @@ class HomeTab extends StatelessWidget {
           // "Recommended" Section
           Container(
             width: double.infinity,
-            height: 220.h, // Adjust height to prevent overflow
             color: ColorsManager.darkGrey,
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -143,9 +151,14 @@ class HomeTab extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,
                     itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(right: 16.w),
-                      child: ListViewWidget(
-                        imagePath: AssetsManager.recomended,
+                      padding: EdgeInsets.only(right: 12.w),
+                      child:const Stack(
+                        children: [
+                          ListViewWidget(
+                            imagePath: AssetsManager.dora,
+                          ),
+                          BookMarkWidget(),
+                        ],
                       ),
                     ),
                   ),

@@ -12,7 +12,7 @@ class CategoryViewWidget extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(4),
           child: Image.asset(
-            AssetsManager.movie,
+            AssetsManager.dora,
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -20,7 +20,7 @@ class CategoryViewWidget extends StatelessWidget {
         ),
         const Text(
           'Action', // Replace with dynamic category names
-          style: const TextStyle(
+          style:  TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 16,

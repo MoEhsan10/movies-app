@@ -18,12 +18,12 @@ class WatchList extends StatelessWidget {
             padding: REdgeInsets.symmetric(vertical: 30.h, horizontal: 13.w),
             child: Text('WatchList',style: AppStyles.title,),
           ),
-          SizedBox(height: 10.h,),
-          WatchlistWidget(),
-          WatchlistWidget(),
-          WatchlistWidget(),
-          WatchlistWidget(),
-          WatchlistWidget(),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5, // Adjust as per your data
+              itemBuilder: (context, index) => const WatchlistWidget(),
+            ),
+          ),
 
         ],
       ),

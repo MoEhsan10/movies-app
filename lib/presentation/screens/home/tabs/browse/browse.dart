@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/config/theme/app_styles.dart';
+import 'package:movies/core/utils/routes_manager.dart';
 import 'package:movies/presentation/screens/home/tabs/browse/widget/category_view_widget.dart';
 
 class Browse extends StatefulWidget {
@@ -34,9 +35,10 @@ class _BrowseState extends State<Browse> {
                 childAspectRatio: 1.5, // Adjust the aspect ratio for each grid item
               ),
               itemCount: 10, // Number of items in the grid
-              itemBuilder: (context, index) => InkWell(onTap: () {}, child: const CategoryViewWidget()),
+              itemBuilder: (context, index) => InkWell( onTap: () {
+                Navigator.pushNamed(context, RoutesManager.browseDetails);
+              }, child: const CategoryViewWidget())),
             ),
-          ),
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:movies/config/theme/app_styles.dart';
 import 'package:movies/core/utils/assets_manager.dart';
 import 'package:movies/core/utils/colors_manager.dart';
 import 'package:movies/presentation/screens/home/tabs/home/detials/widget/movie_type.dart';
+import 'package:movies/presentation/screens/home/tabs/home/widget/book_mark_widget.dart';
 import 'package:movies/presentation/screens/home/tabs/home/widget/list_view_widget.dart';
 
 class HomeDetails extends StatelessWidget {
@@ -31,7 +32,7 @@ class HomeDetails extends StatelessWidget {
                     SizedBox(
                         width: 412.w,
                         height: 217.h,
-                        child: Image.asset(AssetsManager.movie)),
+                        child: Image.asset(AssetsManager.dora)),
                     Positioned(
                       top: 75.h,
                       left: MediaQuery.of(context).size.width / 2 - 30.w,
@@ -68,7 +69,7 @@ class HomeDetails extends StatelessWidget {
                         height: 199.h,
                         child: Stack(
                           children: [
-                            Image.asset(AssetsManager.smallMovie),
+                            Image.asset(AssetsManager.smallDora),
                             Stack(
                               children: [
                                 SizedBox(
@@ -146,8 +147,13 @@ class HomeDetails extends StatelessWidget {
                             itemCount: 10,
                             itemBuilder: (context, index) => Padding(
                               padding: EdgeInsets.only(right: 16.w),
-                              child: const ListViewWidget(
-                                imagePath: AssetsManager.smallMovie,
+                              child:const Stack(
+                                children: [
+                                  ListViewWidget(
+                                    imagePath: AssetsManager.smallDora,
+                                  ),
+                                  BookMarkWidget(),
+                                ],
                               ),
                             ),
                           ),
